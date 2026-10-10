@@ -8,23 +8,6 @@
 | **Mata kuliah** | Praktikum Pemrograman Berorientasi Objek (PBO) |
 | **Bahasa** | Java dan PHP |
 
-## Tentang pertemuan ini
-
-Materi pertemuan ini adalah **enkapsulasi yang menjaga invariant**. Invariant adalah aturan yang harus selalu benar selama sebuah objek hidup. Supaya aturan itu tidak bisa dilanggar dari luar, ada tiga hal yang dipakai:
-
-- atribut dibuat `private`, jadi tidak bisa diubah sembarangan dari luar kelas,
-- atribut yang tidak boleh berubah dibuat `final` (Java) atau `readonly` (PHP),
-- data divalidasi di constructor, jadi objek yang melanggar aturan tidak pernah terbentuk.
-
-## Studi kasus
-
-Sistem akademik mencatat mahasiswa dengan **NIM**, **nama**, dan tiga komponen nilai (**tugas**, **UTS**, **UAS**). Aturannya:
-
-1. NIM tidak boleh kosong dan tidak berubah setelah mahasiswa terdaftar (jadi tidak ada `setNim()`).
-2. Setiap komponen nilai harus berada di rentang 0 sampai 100.
-3. Nilai akhir = 30% tugas + 30% UTS + 40% UAS. Bobot disimpan sebagai konstanta, bukan ditulis langsung di dalam method.
-4. Huruf mutu: `>= 80` A, `>= 70` B, `>= 60` C, `>= 50` D, selain itu E.
-
 ## Struktur folder
 
 ```
@@ -65,104 +48,6 @@ Pert02/
 | `hurufMutu()` | `return '?'` | `match (true)` sesuai batas A–E |
 
 `main.php` tidak diubah.
-
-## Cuplikan kode penting
-
-**Java: validasi di constructor dengan method pembantu**
-
-```java
-public Mahasiswa(String nim, String nama, double nilaiTugas, double nilaiUts, double nilaiUas) {
-    if (nim == null || nim.trim().isEmpty()) {
-        throw new IllegalArgumentException("NIM tidak boleh kosong atau null");
-    }
-
-    pastikanNilaiSah("nilai tugas", nilaiTugas);
-    pastikanNilaiSah("nilai UTS", nilaiUts);
-    pastikanNilaiSah("nilai UAS", nilaiUas);
-    // ... baru mengisi atribut
-}
-
-private static void pastikanNilaiSah(String namaKomponen, double nilai) {
-    if (Double.isNaN(nilai) || nilai < NILAI_MIN || nilai > NILAI_MAX) {
-        throw new IllegalArgumentException(
-                namaKomponen + " harus berada dalam rentang 0 sampai 100");
-    }
-}
-```
-
-**PHP: `readonly` dan `match`**
-
-```php
-public function __construct(
-    private readonly string $nim,
-    private readonly string $nama,
-    private float $nilaiTugas,
-    private float $nilaiUts,
-    private float $nilaiUas
-) { /* validasi sama seperti di Java */ }
-
-public function hurufMutu(): string
-{
-    $na = $this->nilaiAkhir();
-
-    return match (true) {
-        $na >= 80 => 'A',
-        $na >= 70 => 'B',
-        $na >= 60 => 'C',
-        $na >= 50 => 'D',
-        default => 'E',
-    };
-}
-```
-
-## Cara menjalankan
-
-Butuh JDK 17 ke atas dan PHP 8.1 ke atas.
-
-**Java**
-
-```bash
-cd Pert02/after/Java
-javac -d out *.java
-java -cp out Main
-```
-
-**PHP**
-
-```bash
-cd Pert02/after/PHP
-php main.php
-```
-
-## Output program
-
-**Java**
-
-```
-=== Rekap Nilai ===
-  2024001    Ani Lestari        akhir= 84.90  mutu=A
-  2024002    Budi Santoso       akhir= 59.30  mutu=D
-  2024003    Citra Wijaya       akhir= 92.00  mutu=A
-
-=== Objek menolak data yang melanggar aturan ===
-  Ditolak: nilai tugas harus berada dalam rentang 0 sampai 100
-  Ditolak: NIM tidak boleh kosong atau null
-```
-
-**PHP**
-
-```
-=== Rekap Nilai ===
-  2024001    Ani Lestari        akhir= 84.90  mutu=A
-  2024002    Budi Santoso       akhir= 59.30  mutu=D
-  2024003    Citra Wijaya       akhir= 92.00  mutu=A
-
-=== Objek menolak data yang melanggar aturan ===
-  Ditolak: Nilai Tugas harus berada di antara 0 dan 100.
-  Ditolak: NIM tidak boleh kosong.
-```
-
-Dua kasus di bagian bawah sengaja dibuat salah (nilai 150 dan NIM kosong) untuk membuktikan objek menolak data yang melanggar aturan.
 
 ## Screenshot
 
