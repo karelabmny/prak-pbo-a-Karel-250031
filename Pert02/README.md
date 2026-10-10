@@ -91,11 +91,6 @@ Pert02/
 
 ![main.php after](img/after/mainphp.png)
 
-## Catatan
-
-- Pesan error di Java dan PHP sedikit berbeda ("rentang 0 sampai 100" vs "di antara 0 dan 100"). Maksudnya sama, hanya redaksinya.
-- Versi PHP belum punya `getNilaiAkhir()` seperti di Java. `nilaiAkhir()` tetap bisa dipanggil langsung, jadi tidak memengaruhi hasil.
-
 ## Kesimpulan
 
 Dengan atribut `private`, `final`/`readonly`, dan validasi di constructor, objek `Mahasiswa` tidak mungkin berada dalam keadaan yang melanggar aturan. Karena pengecekan nilai dipusatkan di satu method pembantu, aturan 0–100 cukup ditulis sekali dan tidak perlu diulang di tiap tempat.
