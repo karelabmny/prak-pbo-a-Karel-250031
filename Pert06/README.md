@@ -1,183 +1,298 @@
-# Praktikum Sesi 6 — Abstract Class, Interface, Enum, dan Trait
+# Pertemuan 06 — Abstract Class, Interface, Enum, dan Trait
 
-**Sub-CPMK-P4 — Mahasiswa mampu mengimplementasikan abstraksi melalui abstract class, interface, enum, dan trait. (P3)**
-
-**Keterkaitan teori:** Pertemuan 6 — Abstract Class, Interface, Enum, dan Trait  
-**Durasi:** 170 menit (1 SKS praktikum) · **Bobot:** 5% dari nilai praktikum  
-**Bahasa:** Java 25 dan PHP 8.4+
-
-> Versi cetak modul ini: [`Modul-Praktikum-06-abstract-class-interface-enum-dan-trait.docx`](Modul-Praktikum-06-abstract-class-interface-enum-dan-trait.docx). Kerangka kode: [`starter/`](starter/).
-
----
-
-## A. Tujuan sesi
-
-1. Memisahkan kemampuan (interface) dari identitas (abstract class) pada satu domain.
-2. Mengimplementasikan beberapa interface pada satu kelas.
-3. Mengganti konstanta status dengan enum yang punya perilaku.
-4. Menggunakan trait di PHP dan mengenali batas kewajarannya.
-
-## B. Alat dan bahan
-
-- Lingkungan hasil sesi 1.
-- PlantUML.
-
-## C. Berkas starter
-
-Salin ke folder tugas Anda; **jangan** menyunting berkas aslinya. Setiap komentar `TODO` harus Anda lengkapi sendiri — kode yang disalin dari sumber lain akan terlihat pada sesi demo.
-
-| Berkas | Keterangan |
+| | |
 |---|---|
-| `starter/java/Movable.java` | Interface dengan TODO pada default method. |
-| `starter/java/Fuelable.java` | Interface kontrak pengisian bahan bakar. |
-| `starter/java/TipeBahanBakar.java` | Enum dengan TODO pada method biayaPengisian(). |
-| `starter/java/Kendaraan.java` | Abstract class dengan TODO. |
-| `starter/java/Mobil.java` | Kelas yang mengimplementasikan dua interface — banyak TODO. |
-| `starter/java/Main.java` | Program uji. |
-| `starter/php/abstraksi.php` | Seluruh struktur PHP dalam satu berkas, dengan TODO. |
-| `starter/php/main.php` | Program uji PHP. |
+| **Nama** | Karel Abimanyu Ahpandi |
+| **NIM** | 4525210031 |
+| **Kelas** | A |
+| **Mata kuliah** | Praktikum Pemrograman Berorientasi Objek (PBO) |
+| **Bahasa** | Java dan PHP |
 
-## D. Langkah kerja
+## Tentang pertemuan ini
 
-Kerjakan berurutan. Jangan melanjutkan ke langkah berikutnya sebelum checkpoint terpenuhi.
+Materi pertemuan ini adalah **abstraksi**, dengan empat alat utama:
 
-### Langkah 1 — Melengkapi interface dan abstract class
+- **Abstract class** menampung kode yang benar-benar sama di semua turunan dan menjawab "benda ini *apa*". Di sini `Kendaraan` menyimpan merek dan tahun.
+- **Interface** menjawab "benda ini *bisa apa*". `Movable` (bisa bergerak) dan `Fuelable` (bisa diisi bahan bakar) dipisah karena tidak semua yang bergerak butuh bahan bakar. Itulah **Interface Segregation Principle**. Di Java satu kelas hanya boleh `extends` satu kelas tetapi boleh `implements` banyak interface.
+- **Enum** menggantikan konstanta angka (misalnya `BENSIN = 1`) dengan tipe yang aman dan boleh punya perilaku, seperti `biayaPengisian()` dan `ramahLingkungan()`.
+- **Trait** (khusus PHP) untuk penggunaan ulang kode secara horizontal, yaitu bisa dipakai kelas yang tidak sekerabat.
 
-- Salin starter ke sesi-06/. Lengkapi Movable, Fuelable, dan Kendaraan.
-- Perhatikan pembagiannya: Kendaraan adalah abstract class karena semua kendaraan punya merek dan tahun — kode yang benar-benar sama. Movable dan Fuelable adalah interface karena tidak semua yang bergerak butuh bahan bakar.
-- Tuliskan di sesi-06/keputusan.md: untuk setiap dari ketiganya, mengapa ia interface atau abstract class?
+## Studi kasus
 
-> **Checkpoint —** keputusan.md memuat tiga keputusan dengan alasan yang berpijak pada "apa benda ini" vs "apa yang bisa dilakukannya".
+Hierarki kendaraan:
 
-### Langkah 2 — Melengkapi enum dengan perilaku
+```
+Kendaraan (abstract)            Movable (interface)      Fuelable (interface)
+├── Mobil  ──────────────────── implements ───────────── implements
+└── Sepeda ──────────────────── implements               (tidak implements Fuelable)
 
-- Lengkapi TipeBahanBakar: setiap konstanta punya label dan harga per satuan.
-- Lengkapi method biayaPengisian(double jumlah) dan ramahLingkungan().
-- Tambahkan case LISTRIK bila belum ada.
+TipeBahanBakar (enum): BENSIN, SOLAR, LISTRIK
+Loggable (trait, PHP): dipakai Mobil dan Pesanan
+```
 
-**Terminal**
+`Sepeda` sengaja tidak mengimplementasikan `Fuelable`. Jadi fungsi `isiPenuh(Fuelable)` tidak bisa menerima `Sepeda`, dan penolakannya terjadi saat kompilasi (Java) atau sebagai `TypeError` (PHP), bukan baru ketahuan saat program berjalan.
+
+## Struktur folder
+
+```
+Pert06/
+├── before/            # kode awal dari dosen (masih ada TODO)
+│   ├── java/          # Movable, Fuelable, TipeBahanBakar, Kendaraan, Mobil, Main
+│   └── php/           # abstraksi.php (semua struktur), main.php
+├── after/             # kode setelah dikerjakan
+│   ├── java/          # + Sepeda.java
+│   └── php/           # abstraksi.php, main.php
+├── img/
+│   ├── before/        # screenshot kode sebelum
+│   └── after/         # screenshot kode sesudah
+└── README.md
+```
+
+## Yang dikerjakan (before → after)
+
+### Java
+
+| Berkas | Before | After |
+|---|---|---|
+| `Movable.java` | `ringkasanGerak()` masih berisi teks "TODO belum dikerjakan" | Default method yang memakai `kecepatanMaksimum()` untuk membuat ringkasan |
+| `Fuelable.java` | Interface kontrak pengisian bahan bakar | Tidak diubah |
+| `TipeBahanBakar.java` | Hanya `BENSIN` dan `SOLAR` dengan harga 0, `LISTRIK` belum ada | Ditambah `LISTRIK`, semua punya harga. `biayaPengisian()` = jumlah x harga, `ramahLingkungan()` hanya `true` untuk `LISTRIK` (`this == LISTRIK`) |
+| `Kendaraan.java` | `umur()` masih `return 0` | `Math.max(0, tahunSekarang - tahun)` supaya tidak negatif |
+| `Mobil.java` | `extends Kendaraan implements Movable, Fuelable` dengan banyak TODO | `bergerak()` mencetak pesan, `kecepatanMaksimum()` = 180, `isiBahanBakar()` menolak jumlah <= 0 dan pengisian yang melebihi kapasitas |
+| `Sepeda.java` | Belum ada | Baru. `extends Kendaraan implements Movable` (tanpa `Fuelable`), 2 roda, kecepatan maksimum 30 |
+| `Main.java` | `Movable` yang diproses hanya `mobil` | `sepeda` ditambahkan ke daftar `Movable`. Baris `isiPenuh(sepeda)` tetap dikomentari karena memang tidak boleh dikompilasi |
+
+### PHP
+
+Seluruh struktur ada di `abstraksi.php`.
+
+| Bagian | Before | After |
+|---|---|---|
+| `enum TipeBahanBakar` | Hanya `Bensin` dan `Solar` | Ditambah `Listrik`. Dilengkapi `label()`, `hargaPerSatuan()`, `biayaPengisian()` (dengan `match`), dan `ramahLingkungan()` |
+| `trait Loggable` | Badan method `log()` masih TODO | Mencetak `[jam] NamaKelas: pesan` memakai `date('H:i:s')` dan `static::class` |
+| `Kendaraan::umur()` | `return 0` | Sudah diisi, tetapi ada kesalahan penulisan (lihat Catatan) |
+| `Mobil` | Sudah `implements Movable, Fuelable` dan memakai trait `Loggable`, tetapi `bergerak()`, `kecepatanMaksimum()`, dan `isiBahanBakar()` masih kosong | Ketiganya diisi: pesan bergerak, kecepatan maksimum 180, dan `isiBahanBakar()` yang memvalidasi jumlah lalu menambah `isiTangki` |
+| `Sepeda` | Belum ada | Baru. Implements `Movable` saja |
+| `Pesanan` | Belum ada | Baru. Kelas yang tidak sekerabat dengan `Kendaraan` tetapi memakai `Loggable` |
+| `main.php` | Hanya `$mobil` | Ditambah `$sepeda` dan pemanggilan `(new Pesanan())->log(...)` |
+
+## Cuplikan kode penting
+
+**Java: satu kelas, satu `extends`, banyak `implements`**
+
+```java
+public class Mobil extends Kendaraan implements Movable, Fuelable { ... }
+
+public class Sepeda extends Kendaraan implements Movable { ... }   // bukan Fuelable
+```
+
+**Java: parameter bertipe interface, bukan kelas konkret (`Main.java`)**
+
+```java
+static void isiPenuh(Fuelable kendaraan) {
+    kendaraan.isiBahanBakar(kendaraan.kapasitasTangki());
+    // ...
+}
+// isiPenuh(mobil);    -> OK
+// isiPenuh(sepeda);   -> ditolak kompilator, Sepeda bukan Fuelable
+```
+
+**Java: enum dengan perilaku**
+
+```java
+public enum TipeBahanBakar {
+    BENSIN("Bensin", 1200),
+    SOLAR("Solar", 10500),
+    LISTRIK("Listrik", 2500);
+
+    public double biayaPengisian(double jumlah) { return jumlah * hargaPerSatuan; }
+    public boolean ramahLingkungan()            { return this == LISTRIK; }
+}
+```
+
+**PHP: enum dengan `match` dan trait yang dipakai dua kelas tak sekerabat**
+
+```php
+enum TipeBahanBakar: string
+{
+    case Bensin = 'bensin';
+    case Solar = 'solar';
+    case Listrik = 'listrik';
+
+    public function hargaPerSatuan(): float
+    {
+        return match ($this) {
+            self::Bensin => 12000,
+            self::Solar => 10500,
+            self::Listrik => 2500,
+        };
+    }
+}
+
+trait Loggable
+{
+    public function log(string $pesan): void
+    {
+        printf("[%s] %s: %s \n", date('H:i:s'), static::class, $pesan);
+    }
+}
+
+final class Mobil extends Kendaraan implements Movable, Fuelable { use Loggable; /* ... */ }
+final class Pesanan { use Loggable; }    // tidak ada hubungan dengan Kendaraan
+```
+
+## Cara menjalankan
+
+Butuh JDK 17 ke atas dan PHP 8.1 ke atas (enum dan `readonly` di PHP butuh 8.1).
+
+**Java**
 
 ```bash
-cd sesi-06/java
+cd Pert06/after/java
 javac -d out *.java
 java -cp out Main
 ```
 
-> **Checkpoint —** Program mencetak tiga jenis bahan bakar dengan biaya dan status ramah lingkungan yang berbeda.
-
-### Langkah 3 — Mengimplementasikan dua interface pada satu kelas
-
-- Lengkapi Mobil: extends Kendaraan implements Movable, Fuelable.
-- Perhatikan bahwa Java hanya mengizinkan SATU extends tetapi BANYAK implements. Catat di keputusan.md mengapa aturan itu ada.
-
-> **Checkpoint —** Mobil dapat dimasukkan ke variabel bertipe Kendaraan, Movable, maupun Fuelable.
-
-### Langkah 4 — Membuat Sepeda dan membuktikan Interface Segregation
-
-- Buat kelas Sepeda: extends Kendaraan implements Movable — TETAPI BUKAN Fuelable.
-- Coba panggil isiPenuh(sepeda) di Main. Catat pesan kompilatornya di keputusan.md.
-- Jelaskan mengapa penolakan pada tahap KOMPILASI ini justru menguntungkan.
-
-> **Checkpoint —** Kompilasi menolak isiPenuh(sepeda), dan pesan kesalahannya sudah tercatat.
-
-### Langkah 5 — Trait di PHP
-
-- Di sesi-06/php/, lengkapi trait Loggable dengan method log(string $pesan).
-- Pakai trait itu pada Mobil DAN pada satu kelas yang sama sekali bukan kerabat kendaraan — misalnya Pesanan. Inilah yang dimaksud penggunaan ulang horizontal.
-- Catat di keputusan.md: kapan trait menjadi berbahaya?
-
-**Terminal**
+**PHP**
 
 ```bash
-cd ../php
+cd Pert06/after/php
 php main.php
 ```
 
-> **Checkpoint —** Dua kelas yang tidak sekerabat sama-sama bisa memanggil log().
+## Output program
 
-### Langkah 6 — Latihan mandiri: interface Peminjamable
+**Java**
 
-- Tanpa starter. Rancang interface Peminjamable dengan method bolehDipinjam(): bool dan masaPinjamHari(): int.
-- Terapkan pada tiga kelas: Buku (14 hari), Majalah (3 hari), dan Skripsi (tidak boleh dipinjam).
-- Buat juga enum StatusPinjam dengan case Tersedia, Dipinjam, Terlambat, Hilang, lengkap dengan method keterangan().
-- Simpan di sesi-06/latihan/ (Java dan PHP).
+```
+=== Semua Movable ===
+Toyota Avanzamelaju di jalan raya
+    Kecepatan Maksimum180.0km/jam
+Polygondikayuh santai di jalan
+    Kecepatan Maksimum30.0km/jam
 
-> **Checkpoint —** Satu fungsi dapat memproses ketiga jenis koleksi tanpa satu pun pemeriksaan tipe.
+=== Hanya yang Fuelable ===
+  Diisi penuh Bensin — biaya Rp54,000
 
-### Langkah 7 — Class diagram
+=== Enum punya perilaku ===
+  Bensin   ramah lingkungan? false  biaya 10 satuan: Rp12,000
+  Solar    ramah lingkungan? false  biaya 10 satuan: Rp105,000
+  Listrik  ramah lingkungan? true   biaya 10 satuan: Rp25,000
+```
 
-- Buat sesi-06/uml/abstraksi.puml yang menampilkan abstract class, interface (dengan notasi <<interface>>), dan enum secara benar.
-- Bedakan panah pewarisan (garis penuh, kepala segitiga kosong) dari panah realisasi interface (garis putus, kepala segitiga kosong).
+Format angka di Java (`%,.0f`) mengikuti pengaturan bahasa komputer, jadi pemisah ribuan bisa berupa koma atau titik.
 
-> **Checkpoint —** Diagram membedakan pewarisan dan realisasi interface dengan notasi yang benar.
+**PHP**
 
-## E. Latihan mandiri di lab
+```
+=== Semua Movable ===
+{this->merek} melaju di jalan raya
+    kecepatan maksimum 180 km/jam
+Polygon mengayuh di jalan
+    kecepatan maksimum 40 km/jam
 
-_Dikerjakan bila langkah kerja selesai lebih awal. Tidak wajib, tetapi menambah nilai pada aspek penerapan konsep._
+=== Hanya yang Fuelable ===
+  Diisi penuh Bensin — biaya Rp540.000
 
-1. Tambahkan default method pada interface Movable, lalu override di salah satu implementornya. Jelaskan kapan default method berguna dan kapan menyesatkan.
-2. Buat satu interface yang sengaja gemuk (delapan method), implementasikan pada kelas yang hanya butuh dua di antaranya. Rasakan masalahnya, lalu pecah menjadi beberapa interface kecil.
+=== Enum punya perilaku ===
+  Bensin   ramah lingkungan? tidak  biaya 10 satuan: Rp120.000
+  Solar    ramah lingkungan? tidak  biaya 10 satuan: Rp105.000
+  Listrik  ramah lingkungan? ya     biaya 10 satuan: Rp25.000
 
-## F. Tugas rumah
+=== Trait dipakai kelas yang tidak sekerabat ===
+[11:49:16] Mobil: servis berkala selesai 
+[11:49:16] Pesanan: pesanan #1042 dibuat 
+```
 
-1. Jawab dalam 150 kata: mengapa bolehDipinjam() lebih baik ditaruh di interface daripada dijawab dengan if ($item instanceof Skripsi)? Simpan di sesi-06/refleksi.md.
-2. Persiapan sesi 7: baca deskripsi Sistem Perpustakaan pada modul sesi 7 dan tuliskan daftar kelas yang menurut Anda diperlukan.
+Jam pada baris log akan berbeda setiap kali program dijalankan.
 
-## G. Luaran yang dikumpulkan
+## Screenshot
 
-Seluruh luaran diserahkan melalui repositori Git pribadi Anda, dengan riwayat commit yang menunjukkan proses pengerjaan — bukan satu commit tunggal di akhir.
+### Before
 
-| Berkas / folder | Keterangan |
-|---|---|
-| `sesi-06/java/` | Movable, Fuelable, TipeBahanBakar, Kendaraan, Mobil, Sepeda, Main. |
-| `sesi-06/php/` | abstraksi.php dan main.php dengan trait Loggable. |
-| `sesi-06/latihan/` | Peminjamable dan StatusPinjam di kedua bahasa. |
-| `sesi-06/uml/abstraksi.puml` | Diagram dengan notasi interface dan enum yang benar. |
-| `sesi-06/keputusan.md` | Empat catatan keputusan rancangan dan dua pesan kompilator. |
+**`Movable.java`**
 
-## H. Rubrik penilaian sesi ini
+![Movable.java before](img/before/movable.png)
 
-| Aspek | Bobot | Kriteria |
-|---|---|---|
-| Kebenaran fungsional | 35% | Seluruh perintah pada langkah kerja berjalan dan menghasilkan keluaran yang diminta. |
-| Penerapan konsep sesi ini | 30% | Konsep yang menjadi Sub-CPMK sesi ini diterapkan dengan tepat, bukan sekadar membuat program berjalan. |
-| Keterbacaan dan konvensi | 10% | Penamaan bermakna, format konsisten, komentar seperlunya, riwayat commit wajar. |
-| Demo dan pertanyaan lisan | 25% | Mampu menjelaskan setiap baris kode sendiri dan menjawab pertanyaan demo. MENGGUGURKAN: tanpa demo, tugas tidak dinilai. |
+**`TipeBahanBakar.java`**
 
-## I. Pertanyaan demo
+![TipeBahanBakar.java before](img/before/tipebahanbakarjava.png)
 
-> Pertanyaan berikut akan diajukan saat Anda mendemokan pekerjaan sesi ini. Daftar ini sengaja dibuka agar Anda mempersiapkan **pemahaman**, bukan hafalan. Anda boleh memakai alat bantu apa pun saat mengerjakan — tetapi kode yang tidak dapat Anda jelaskan sendiri tidak dinilai.
+**`Kendaraan.java`**
 
-1. Mengapa Kendaraan Anda buat abstract class, sedangkan Movable interface? Apa yang menjadi dasar pemisahannya?
-2. Tunjukkan kelas yang mengimplementasikan lebih dari satu interface. Mengapa Java tidak mengizinkan extends lebih dari satu, tetapi mengizinkan implements banyak?
-3. Saya ingin menambah Generator: butuh bahan bakar tapi tidak bergerak. Interface mana yang ia implementasikan? Buat sekarang.
-4. Pada method isiPenuh(Fuelable), mengapa Sepeda ditolak saat kompilasi dan bukan saat program berjalan? Mana yang lebih baik?
-5. Apa keuntungan enum TipeBahanBakar dibanding tiga konstanta int? Buktikan dengan mencoba memberi nilai yang tidak terdaftar.
-6. Di kode PHP Anda, tunjukkan dua kelas yang memakai trait Loggable. Apakah keduanya sekerabat? Mengapa trait cocok di sini?
-7. Kapan trait menjadi berbahaya? Berikan satu contoh konkret.
+![Kendaraan.java before](img/before/kendaraanjava.png)
 
-## J. Kesalahan yang sering terjadi
+**`Mobil.java`**
 
-| Gejala | Penyebab yang lazim | Cara memperbaiki |
-|---|---|---|
-| Kompilasi gagal: Mobil is not abstract and does not override abstract method | Ada method interface atau abstract yang belum diimplementasikan. | Implementasikan seluruh method kontrak. IDE biasanya bisa membuatkan kerangkanya. |
-| PHP: enum tidak dikenali | Enum baru ada sejak PHP 8.1. | Periksa php -v. Perbarui PHP jika di bawah 8.1. |
-| Trait dan kelas punya method bernama sama | Konflik nama; PHP memberi prioritas ke method kelas. | Gunakan insteadof dan as untuk menyelesaikan konflik secara eksplisit, atau ganti nama method. |
-| Interface diberi atribut non-konstanta | Interface tidak boleh menyimpan keadaan. | Pindahkan atribut ke abstract class atau ke kelas implementor. |
-| Diagram tidak membedakan interface dari kelas | Notasi <<interface>> tidak ditulis. | Di PlantUML gunakan kata kunci interface, dan panah ..\|> untuk realisasi. |
+![Mobil.java before](img/before/mobiljava.png)
 
-## Lembar verifikasi demo
+**`Main.java`**
 
-Diisi oleh dosen atau asisten pada saat demo. Tugas tanpa lembar terverifikasi tidak dinilai.
+![Main.java before](img/before/mainjava.png)
 
-|  |  |
-|---|---|
-| Nama / NIM |  |
-| Tanggal demo |  |
-| Nilai sesi ini |  |
-| Catatan penguji |  |
-| Paraf penguji |  |
+**`abstraksi.php` (bagian 1)**
 
----
+![abstraksi.php before bagian 1](img/before/abstraksiphp-1.png)
 
-_Modul ini disusun 10 September 2026. Versi teknologi yang dirujuk (Java 25 LTS, PHP 8.4/8.5, Laravel 13, Spring Boot 4.1) diverifikasi pada tanggal tersebut dan perlu diperiksa ulang sebelum semester berjalan._
+**`abstraksi.php` (bagian 2)**
+
+![abstraksi.php before bagian 2](img/before/abstraksiphp-2.png)
+
+### After
+
+**`Movable.java`**
+
+![Movable.java after](img/after/movablejava.png)
+
+**`TipeBahanBakar.java`**
+
+![TipeBahanBakar.java after](img/after/tipebahanbakarjava.png)
+
+**`Kendaraan.java`**
+
+![Kendaraan.java after](img/after/kendaraanjava.png)
+
+**`Mobil.java`**
+
+![Mobil.java after](img/after/mobiljava.png)
+
+**`Sepeda.java`**
+
+![Sepeda.java after](img/after/sepedajava.png)
+
+**`Main.java`**
+
+![Main.java after](img/after/mainjava.png)
+
+**`abstraksi.php` (bagian 1)**
+
+![abstraksi.php after bagian 1](img/after/abstraksiphp-1.png)
+
+**`abstraksi.php` (bagian 2)**
+
+![abstraksi.php after bagian 2](img/after/abstraksiphp-2.png)
+
+**`main.php`**
+
+![main.php after](img/after/mainphp.png)
+
+## Catatan
+
+Hal-hal yang perlu diperhatikan pada hasil akhir:
+
+**Java**
+
+- Harga `BENSIN` tertulis `1200`, sedangkan petunjuk di kerangka menyebut `12000`. Akibatnya biaya Bensin di Java (Rp12.000 untuk 10 satuan) berbeda dengan PHP (Rp120.000).
+- `Mobil.isiBahanBakar()` memvalidasi jumlah tetapi belum menambah `isiTangki`, jadi `getIsiTangki()` tetap 0 setelah pengisian.
+- Teks keluaran kurang spasi ("Toyota Avanzamelaju", "Kecepatan Maksimum180.0km/jam") karena string digabung tanpa spasi.
+
+**PHP**
+
+- `Mobil::bergerak()` mencetak teks `{this->merek}` apa adanya. Seharusnya `{$this->merek}` supaya yang tampil nama merek.
+- `Kendaraan::umur()` berisi `max(0, $tahunSekarang, - $this->tah)`, yaitu properti `tah` tidak ada dan pengurangannya tidak tertulis benar. Method ini tidak dipanggil di `main.php`, tetapi akan error kalau dipanggil. Seharusnya `max(0, $tahunSekarang - $this->tahun)`.
+- Di `Mobil::isiBahanBakar()`, nama kelas exception tertulis `InvalidArgumentExeception` (typo, kurang huruf `c`). Kalau jalur error itu tercapai, PHP akan melapor bahwa kelasnya tidak ditemukan.
+- Interface `Movable` di PHP tidak punya padanan default method seperti di Java, jadi ringkasan gerak dicetak langsung di `main.php`.
+
+## Kesimpulan
+
+Pembagian peran jadi lebih jelas: abstract class (`Kendaraan`) untuk kode yang sama, interface (`Movable`, `Fuelable`) untuk kemampuan, enum (`TipeBahanBakar`) untuk pilihan tetap yang punya perilaku, dan trait (`Loggable`) untuk berbagi kode antar kelas yang tidak sekerabat. Karena `Movable` dan `Fuelable` dipisah, `Sepeda` tidak dipaksa punya bahan bakar, dan kesalahan memberikannya ke `isiPenuh()` langsung ketahuan oleh kompilator atau `TypeError`, bukan saat program sudah berjalan.
