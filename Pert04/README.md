@@ -103,6 +103,31 @@ Isi folder `after/java` **sama dengan `before/java`**, yaitu masih berupa kerang
 ![main.php after](img/after/mainphp.png)
 
 
+## Output
+
+### Before
+
+## Java
+
+<img width="737" height="162" alt="outputjava" src="https://github.com/user-attachments/assets/394ca725-c29e-4aaf-8b8c-c59ba7717325" />
+
+
+# PHP
+
+<img width="756" height="167" alt="outputphp" src="https://github.com/user-attachments/assets/9a7f184d-4d49-4ecf-aec0-d612bdd3dd0b" />
+
+
+### After
+
+## Java
+
+<img width="751" height="165" alt="outputjava" src="https://github.com/user-attachments/assets/13083b41-2304-4660-875a-b4ca87384eea" />
+
+
+# PHP
+
+<img width="747" height="205" alt="outputphp" src="https://github.com/user-attachments/assets/dbc6f42a-a8ef-4acb-b2df-1c420900fe4e" />
+
 ## Kesimpulan
 
 Dengan pewarisan, bagian yang sama (nip, nama, gaji pokok, cara mencetak) cukup ditulis sekali di `Pegawai`, dan tiap jenis pegawai hanya menulis bagian yang berbeda. Memanggil `parent::hitungGaji()` membuat perubahan rumus di induk otomatis ikut ke semua turunan, sedangkan menyalin rumus ke turunan membuat kodenya mudah tidak sinkron. Bagian Java masih perlu dilengkapi dengan pola yang sama seperti versi PHP.
