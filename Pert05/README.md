@@ -109,6 +109,31 @@ Pert05/
 
 ![notifikasi.php after](img/after/notifikasiphp.png)
 
+## Output
+
+### Before
+
+## Java
+
+<img width="757" height="222" alt="outputjava" src="https://github.com/user-attachments/assets/bc40d4d3-9776-4784-9ea7-36a4b02059f7" />
+
+
+# PHP
+
+<img width="761" height="146" alt="outputphp" src="https://github.com/user-attachments/assets/e925b04d-ea9e-4e63-ba1e-c082bea7511e" />
+
+
+### After
+
+## Java
+
+<img width="777" height="252" alt="outputjava" src="https://github.com/user-attachments/assets/6f16087c-ab61-41ff-b2fd-a12a2c05c8b0" />
+
+
+# PHP
+
+<img width="747" height="257" alt="outputphp" src="https://github.com/user-attachments/assets/6bab3906-1e40-4eba-8ffc-d92a1b2b2c37" />
+
 
 ## Kesimpulan
 
