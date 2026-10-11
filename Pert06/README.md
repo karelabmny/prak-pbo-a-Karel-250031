@@ -123,6 +123,31 @@ Seluruh struktur ada di `abstraksi.php`.
 
 ![main.php after](img/after/mainphp.png)
 
+## Output
+
+### Before
+
+## Java
+
+<img width="780" height="182" alt="outputjava" src="https://github.com/user-attachments/assets/8de16546-fcfc-4633-ac97-47996e921712" />
+
+
+# PHP
+
+<img width="755" height="221" alt="outputphp" src="https://github.com/user-attachments/assets/9b5c7645-5b74-4617-b096-e3108e80434e" />
+
+
+### After
+
+## Java
+
+<img width="762" height="255" alt="outputjava" src="https://github.com/user-attachments/assets/4aba5b44-1068-4102-8ebc-637b9147cb08" />
+
+
+# PHP
+
+<img width="747" height="332" alt="outputphp" src="https://github.com/user-attachments/assets/ac268b78-cebd-46a5-99ef-0a93f9a195cc" />
+
 
 ## Kesimpulan
 
