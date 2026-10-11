@@ -96,6 +96,25 @@ Pert03/
 
 ![main.php after](img/after/mainphp.png)
 
+## Output
+
+### Before
+
+## Java
+
+<img width="775" height="221" alt="outputjava" src="https://github.com/user-attachments/assets/a4c53e01-151b-43ba-86fe-384339b3cbc9" />
+
+### After
+
+## Java
+
+<img width="750" height="222" alt="outputjava" src="https://github.com/user-attachments/assets/3c8bb850-0dc7-4730-9600-9859a8b1cae4" />
+
+
+# PHP
+
+<img width="746" height="222" alt="outputphp" src="https://github.com/user-attachments/assets/fc8cec41-3ad5-441f-8d0f-54b483c7d849" />
+
 
 ## Kesimpulan
 
