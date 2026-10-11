@@ -91,6 +91,28 @@ Pert02/
 
 ![main.php after](img/after/mainphp.png)
 
+## Output
+
+### Before
+
+## Java
+
+<img width="755" height="162" alt="outputjava" src="https://github.com/user-attachments/assets/49157d8e-64a2-4b35-a20a-c459f5365d14" />
+
+## PHP
+
+<img width="756" height="165" alt="outputphp" src="https://github.com/user-attachments/assets/64e67271-7846-4f89-a948-8fc5c461717a" />
+
+## After
+
+##Java
+
+<img width="747" height="167" alt="outputjava" src="https://github.com/user-attachments/assets/bc604abb-5b29-4db4-91a2-aba70fa2723a" />
+
+##PHP
+
+<img width="750" height="162" alt="outputphp" src="https://github.com/user-attachments/assets/bddafe9c-163e-4361-ba31-436c8a74756a" />
+
 ## Kesimpulan
 
 Dengan atribut `private`, `final`/`readonly`, dan validasi di constructor, objek `Mahasiswa` tidak mungkin berada dalam keadaan yang melanggar aturan. Karena pengecekan nilai dipusatkan di satu method pembantu, aturan 0–100 cukup ditulis sekali dan tidak perlu diulang di tiap tempat.
