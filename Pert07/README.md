@@ -6,14 +6,7 @@
 | **NIM** | 4525210031 |
 | **Kelas** | A |
 | **Mata kuliah** | Praktikum Pemrograman Berorientasi Objek (PBO) |
-| **Bahasa** | Java dan PHP |
 
-Pertemuan ini membedakan dua jenis relasi "memiliki":
-
-- **Komposisi**: `Buku` memiliki `Bab`. Bab dibuat di dalam `Buku`, tidak bisa berpindah ke buku lain, dan tidak berarti apa pun di luar bukunya.
-- **Agregasi**: `Jurusan` menaungi `Mahasiswa`. Objek `Mahasiswa` dibuat di luar, diterima oleh `Jurusan`, dan tetap hidup walaupun dikeluarkan dari jurusan.
-
-Konteks sistemnya ada di [`deskripsi-kebutuhan.md`](deskripsi-kebutuhan.md), yaitu Sistem Perpustakaan Universitas Pancasila yang menjadi dasar pekerjaan sesi 7 sampai 14.
 
 ## Struktur folder
 
