@@ -46,21 +46,6 @@ javac -d out $(find . -name "*.java")
 java -cp out Main
 ```
 
-Di PowerShell, `$(find ...)` tidak tersedia. Gunakan `javac -d out Main.java model\Buku.java model\Jurusan.java service\PerpustakaanService.java`.
-
-| Berkas | Before | After |
-|---|---|---|
-| `Buku.java` — constructor | TODO 1: jumlah eksemplar negatif belum ditolak | Melempar `IllegalArgumentException` bila `jumlahEksemplar < 0` |
-| `Buku.java` — `tambahBab()` | Badan method kosong, sehingga buku selalu 0 bab | `bab.add(new Bab(nomor, judulBab))`. Parameternya nomor dan judul, bukan objek `Bab`, sehingga `Bab` hanya lahir dari dalam `Buku` (komposisi) |
-| `Buku.java` — `getBab()` | `return bab;` mengembalikan list internal, sehingga bisa dikosongkan dari luar lewat `clear()` | `return List.copyOf(bab);` mengembalikan salinan tak-berubah, `clear()` dari luar melempar `UnsupportedOperationException` |
-| `Buku.java` — `kurangiStok()` | Badan method kosong | Melempar `IllegalStateException` bila stok sudah 0, selain itu stok dikurangi satu |
-| `Buku.java` — `Bab` | Kelas bersarang `static final` dengan constructor `private` | Tidak diubah. Hanya `Buku` yang boleh membuat `Bab` |
-| `Jurusan.java` — `daftarkan()` | TODO 1: badan method kosong | Menolak `null` dengan `Objects.requireNonNull` dan melewati NIM yang sudah terdaftar. Belum ada baris yang menambahkan mahasiswa ke list (lihat Catatan) |
-| `Jurusan.java` — `keluarkan()` | Badan method kosong | `removeIf` berdasarkan NIM. Objek `Mahasiswa` tetap hidup di luar |
-| `Jurusan.java` — `getMahasiswa()` | `return mahasiswa;` | `return List.copyOf(mahasiswa);` |
-| `PerpustakaanService.java` | Hanya kerangka, semua method kosong | Menyimpan koleksi di `List<Buku>`. `tambahKoleksi()` mengabaikan `null` dan nomor induk ganda, `cariKoleksi()` mencari tanpa membedakan huruf besar kecil, `pinjam()` mengurangi stok bila buku tersedia, `kembalikan()` menambah stok |
-| `Main.java` | Tidak ada perubahan isi | Hanya spasi di depan baris `import model.Buku;` |
-
 ### PHP
 
 Seluruh kelas ada di `relasi.php`. Cara menjalankan (dari folder `after/starter/php`):
@@ -69,19 +54,6 @@ Seluruh kelas ada di `relasi.php`. Cara menjalankan (dari folder `after/starter/
 php main.php
 ```
 
-| Bagian | Before | After |
-|---|---|---|
-| `enum JenisKeanggotaan` | Belum ada | Baru: `MAHASISWA`, `DOSEN`, `UMUM` |
-| `enum StatusKoleksi` | Belum ada | Baru: `TERSEDIA`, `DIPINJAM`, `HILANG` |
-| `Bab` | Tanpa constructor, `__toString()` hanya mengembalikan teks "TODO 1 belum dikerjakan" | Menyimpan `nomor` dan `judul` lewat constructor, ada getter, `__toString()` menghasilkan `Bab 1: Paradigma Objek`. Constructor-nya publik, jadi aturan "hanya `Buku` yang membuat `Bab`" dijaga lewat konvensi karena PHP tidak punya kelas bersarang |
-| `Buku` — constructor | Properti lewat constructor promotion `readonly`, validasi belum ada | Properti ditulis biasa, ada parameter `StatusKoleksi $status` (default `TERSEDIA`), jumlah eksemplar negatif melempar `InvalidArgumentException` |
-| `Buku::tambahBab()` | Badan method kosong | `$this->bab[] = new Bab($nomor, $judulBab)` |
-| `Buku::kurangiStok()` | Badan method kosong | Melempar `UnderflowException` bila stok 0. Setelah dikurangi, bila stok menjadi 0 maka status berubah menjadi `DIPINJAM` |
-| `Buku::tambahStok()` | Hanya `jumlahEksemplar++` | Menambah stok dan mengembalikan status ke `TERSEDIA` |
-| `Buku::__toString()` | `[3 eks, 3 bab]` | Ditambah status: `[3 eks, 3 bab, status: TERSEDIA]` |
-| `Mahasiswa` | Hanya `nim` dan `nama` | Ditambah `JenisKeanggotaan $jenis` (default `MAHASISWA`), `getNama()`, `getJenis()`, dan `__toString()` menampilkan jenisnya |
-| `Jurusan::daftarkan()` | Badan method kosong | Melewati NIM yang sudah terdaftar, selain itu mahasiswa ditambahkan |
-| `Jurusan::keluarkan()` | Badan method kosong | Menghapus berdasarkan NIM lalu merapikan indeks dengan `array_values()` |
 | `main.php` | Tidak ada perubahan | Tidak diubah |
 
 ## Screenshot
