@@ -64,7 +64,8 @@ Kelas `Buku` menyimpan nomor induk, judul, penulis, jumlah eksemplar, dan daftar
 
 **Screenshot kode:**
 
-![Buku.java](../img/buku.java.png)
+[Buku.java]<img width="677" height="1021" alt="buku java" src="https://github.com/user-attachments/assets/48a7622a-d0c5-4d8d-8cb7-a70fb9218b22" />
+
 
 ### 1.2. `model/Anggota.java`
 
@@ -74,7 +75,8 @@ Kelas `Anggota` merepresentasikan anggota perpustakaan dengan nomor anggota, nam
 
 **Screenshot kode:**
 
-![Anggota.java](../img/anggota.java.png)
+[Anggota.java]<img width="1167" height="1017" alt="anggota java" src="https://github.com/user-attachments/assets/2bda5942-0d8b-4ebc-a10a-a7015faa3879" />
+
 
 ### 1.3. `model/Peminjaman.java`
 
@@ -84,7 +86,8 @@ Kelas `Peminjaman` menyimpan ID transaksi, anggota, buku, tanggal pinjam, tangga
 
 **Screenshot kode:**
 
-![Peminjaman.java](../img/Peminjaman.java.png)
+[Peminjaman.java]<img width="821" height="1042" alt="Peminjaman java" src="https://github.com/user-attachments/assets/7b9a6c9b-f842-4d3d-999d-3b98b30abf22" />
+
 
 ### 1.4. `service/PerpustakaanService.java`
 
@@ -94,7 +97,8 @@ Kelas layanan mengelola daftar koleksi, anggota, dan peminjaman. Fitur yang dise
 
 **Screenshot kode:**
 
-![PerpustakaanService.java](../img/PerpustakaanService.java.png)
+[PerpustakaanService.java]<img width="726" height="1035" alt="PerpustakaanService java" src="https://github.com/user-attachments/assets/5ce70e48-f5e2-48f3-957b-1da21f2aab58" />
+
 
 ### 1.5. `util/Format.java`
 
@@ -104,7 +108,7 @@ Kelas utilitas `Format` menyediakan `formatRupiah()` untuk menampilkan nominal d
 
 **Screenshot kode:**
 
-![Format.java](../img/format.java.png)
+[Format.java]<img width="1277" height="802" alt="format java" src="https://github.com/user-attachments/assets/cb1928d0-e254-4a41-9135-3c40a35e64ff" />
 
 ### 1.6. `App.java`
 
@@ -114,13 +118,15 @@ Kelas utilitas `Format` menyediakan `formatRupiah()` untuk menampilkan nominal d
 
 **Screenshot kode:**
 
-![App.java](../img/app.java.png)
+[App.java]<img width="962" height="1035" alt="app java" src="https://github.com/user-attachments/assets/92ff4f15-39f6-45a0-885a-61e64f98c774" />
+
 
 ### Output Java
 
 Output memperlihatkan daftar koleksi buku, daftar transaksi peminjaman beserta status pengembaliannya, dan simulasi denda keterlambatan.
 
-![Output Java](../img/outputjava.png)
+[Output Java]<img width="1165" height="601" alt="outputjava" src="https://github.com/user-attachments/assets/464a1aba-3dfc-45a0-acd3-d915420df25b" />
+
 
 ---
 
@@ -146,7 +152,7 @@ Kelas `Buku` menyimpan data buku dan daftar bab. Bab ditambahkan melalui `tambah
 
 **Screenshot kode:**
 
-![Buku.php](../img/buku.php.png)
+[Buku.php]<img width="782" height="1035" alt="buku php" src="https://github.com/user-attachments/assets/4a1c1738-f542-497f-841b-a2015a88803f" />
 
 ### 2.2. `src/Model/Bab.php`
 
@@ -156,7 +162,8 @@ Kelas `Bab` merepresentasikan bab pada buku dengan nomor dan judul. Atributnya `
 
 **Screenshot kode:**
 
-![Bab.php](../img/bab.php.png)
+[Bab.php]<img width="702" height="780" alt="bab php" src="https://github.com/user-attachments/assets/816eb2be-f5dd-40ac-9b94-f2fe225f1295" />
+
 
 ### 2.3. `src/Model/Anggota.php`
 
@@ -166,7 +173,8 @@ Kelas `Anggota` menyimpan nomor anggota, nama, dan jenis keanggotaan. Atribut me
 
 **Screenshot kode:**
 
-![Anggota.php](../img/anggota.php.png)
+[Anggota.php]<img width="857" height="950" alt="anggota php" src="https://github.com/user-attachments/assets/bf838cd7-39df-4718-8197-9855d1a13020" />
+
 
 ### 2.4. `src/Model/Peminjaman.php`
 
@@ -176,7 +184,8 @@ Kelas `Peminjaman` menyimpan data transaksi dan menggunakan library Carbon untuk
 
 **Screenshot kode:**
 
-![Peminjaman.php](../img/Peminjaman.php.png)
+[Peminjaman.php]<img width="747" height="1030" alt="Peminjaman php" src="https://github.com/user-attachments/assets/06a54858-cc11-4772-9db7-3bd8085f48f0" />
+
 
 ### 2.5. `src/Service/PerpustakaanService.php`
 
@@ -186,7 +195,8 @@ Kelas layanan mengelola koleksi buku, anggota, dan transaksi. Proses peminjaman 
 
 **Screenshot kode:**
 
-![PerpustakaanService.php](../img/PerpustakaanService.php.png)
+[PerpustakaanService.php]<img width="667" height="1040" alt="PerpustakaanService php" src="https://github.com/user-attachments/assets/b5db6181-a450-4329-99ed-66e7f77c0394" />
+
 
 ### 2.6. `src/Util/Format.php`
 
@@ -196,7 +206,8 @@ Kelas `Format` menyediakan `formatRupiah()` yang memakai `number_format()` denga
 
 **Screenshot kode:**
 
-![Format.php](../img/format.php.png)
+[Format.php]<img width="737" height="707" alt="format php" src="https://github.com/user-attachments/assets/49a007d0-8564-47b6-9dfe-ccbf5be447ab" />
+
 
 ### 2.7. `main.php`
 
@@ -206,13 +217,15 @@ Kelas `Format` menyediakan `formatRupiah()` yang memakai `number_format()` denga
 
 **Screenshot kode:**
 
-![main.php](../img/main.php.png)
+[main.php]<img width="752" height="1032" alt="main php" src="https://github.com/user-attachments/assets/7a365fc2-de1d-4ac3-a1ac-077ac94a32ac" />
+
 
 ### Output PHP
 
 Output memperlihatkan koleksi buku, transaksi peminjaman, status pengembalian, dan rincian perhitungan denda keterlambatan.
 
-![Output PHP](../img/outputphp.png)
+[Output PHP]<img width="1135" height="492" alt="outputphp" src="https://github.com/user-attachments/assets/e083d7bd-3963-43ce-a2aa-8e7b710dcaca" />
+
 
 ---
 
@@ -228,36 +241,6 @@ Output memperlihatkan koleksi buku, transaksi peminjaman, status pengembalian, d
 | **Dependency manager PHP** | Composer, dengan konfigurasi pada `php/composer.json` |
 | **Autoload PHP** | PSR-4 (`"Perpustakaan\\": "src/"`) melalui `vendor/autoload.php` |
 | **Library tanggal PHP** | Carbon (`nesbot/carbon`) untuk perhitungan tanggal jatuh tempo dan keterlambatan |
-
----
-
-## 4. Percobaan Merusak Pemetaan Package dan Namespace
-
-Rincian lengkap ada di [`percobaan.md`](percobaan.md). Ringkasannya:
-
-| Percobaan | Perubahan | Hasil | Perbaikan |
-| :--- | :--- | :--- | :--- |
-| **PHP** | `namespace` di `src/Model/Buku.php` diubah menjadi `Perpustakaan\Domain` tanpa memindahkan berkas | `Fatal error: Class "Perpustakaan\Model\Buku" not found` | Kembalikan namespace ke `Perpustakaan\Model` (atau pindahkan berkas ke `src/Domain/`) |
-| **Java** | `package` di `model/Buku.java` diubah menjadi `...perpustakaan.domain` tanpa memindahkan berkas | `mvn compile` gagal: `file does not contain class ...model.Buku` | Kembalikan `package` ke `...perpustakaan.model`, lalu `mvn clean compile` hingga `BUILD SUCCESS` |
-
-Kesimpulannya, pada PHP namespace harus selaras dengan jalur berkas menurut aturan PSR-4, sedangkan pada Java kesesuaian antara `package` dan struktur folder adalah aturan kompilasi yang mutlak.
-
----
-
-## 5. Pengelolaan Repositori Git
-
-- **`target/` dan `vendor/` tidak di-commit.** Keduanya adalah hasil build yang bisa dibuat ulang dengan `mvn compile` dan `composer install`, bisa bermasalah antar sistem operasi, dan membuat repositori membengkak. Keduanya sudah tercantum di `.gitignore`.
-- **`composer.lock` wajib di-commit.** Berkas ini mengunci versi eksak seluruh paket (termasuk dependensi turunannya) sehingga semua anggota tim mendapatkan build yang identik.
-
----
-
-## 6. Berkas Pendukung
-
-| Berkas | Keterangan |
-| :--- | :--- |
-| `dependency-tree.txt` | Keluaran `mvn dependency:tree` (BUILD SUCCESS) yang menunjukkan `ascii-table:1.8.0` terpasang |
-| `percobaan.md` | Catatan percobaan merusak package/namespace beserta analisis dan perbaikannya |
-| `generate_deck.py` | Skrip Python (`python-pptx`) untuk membuat slide presentasi modul 09. Jalur penyimpanan pada bagian `__main__` masih berupa path lokal dan perlu disesuaikan. Jalankan dengan `pip install python-pptx` lalu `python generate_deck.py` |
 
 ---
 
