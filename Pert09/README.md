@@ -244,6 +244,6 @@ Output memperlihatkan koleksi buku, transaksi peminjaman, status pengembalian, d
 
 ---
 
-## 7. Kesimpulan
+## 4. Kesimpulan
 
 Praktikum ini menerapkan pemisahan kelas berdasarkan tanggung jawab ke dalam model, service, dan utilitas. Java mengorganisasi kelas menggunakan package serta Maven sebagai build tool (lengkap dengan dependensi `ascii-table`), sedangkan PHP menggunakan namespace dan Composer untuk pengelolaan dependency serta autoload PSR-4. Percobaan merusak pemetaan membuktikan bahwa deklarasi `package` dan `namespace` harus selaras dengan struktur folder. Aplikasi perpustakaan dapat menjalankan simulasi pengelolaan buku, anggota, peminjaman, pengembalian, dan denda keterlambatan.
