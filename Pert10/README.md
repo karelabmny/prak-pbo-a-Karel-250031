@@ -24,7 +24,8 @@ Ini adalah induk dari semua exception di aplikasi perpustakaan. Kelas ini abstra
 
 **Screenshot kode:**
 
-![PerpustakaanException.java](screenshots/java-PerpustakaanException.java.png)
+![PerpustakaanException.java](<img width="845" height="622" alt="Perpustakaan java" src="https://github.com/user-attachments/assets/73fd5c47-8e44-4f2d-b796-7dc2471a560a" />
+)
 
 ### 1.2. exception/BukuTidakDitemukanException.java
 
@@ -34,7 +35,8 @@ Exception ini dilempar saat ISBN tidak ada di katalog. Selain pesan, exception m
 
 **Screenshot kode:**
 
-![BukuTidakDitemukanException.java](screenshots/java-BukuTidakDitemukanException.java.png)
+![BukuTidakDitemukanException.java](<img width="850" height="712" alt="Bukutidakditemukan java" src="https://github.com/user-attachments/assets/4a8fb4d2-416a-4972-b3ce-c9b109edaadb" />
+)
 
 ### 1.3. exception/AnggotaTidakDitemukanException.java
 
@@ -44,7 +46,8 @@ Dilempar saat ID anggota belum terdaftar. Polanya sama dengan exception buku, te
 
 **Screenshot kode:**
 
-![AnggotaTidakDitemukanException.java](screenshots/java-AnggotaTidakDitemukanException.java.png)
+![AnggotaTidakDitemukanException.java](<img width="800" height="477" alt="Anggotatidakditemukan java" src="https://github.com/user-attachments/assets/fb74daaf-fa04-4c5b-bfa8-bf9288f02011" />
+)
 
 ### 1.4. exception/BukuSedangDipinjamException.java
 
@@ -54,7 +57,8 @@ Dilempar saat stok buku habis. Exception membawa dua data, yaitu `isbn` (untuk d
 
 **Screenshot kode:**
 
-![BukuSedangDipinjamException.java](screenshots/java-BukuSedangDipinjamException.java.png)
+![BukuSedangDipinjamException.java](<img width="830" height="645" alt="Bukusedangdipinjam java" src="https://github.com/user-attachments/assets/96d92082-c216-49b0-a02f-f07708bc4a07" />
+)
 
 ### 1.5. exception/BatasPinjamTerlampauiException.java
 
@@ -64,7 +68,8 @@ Dilempar saat anggota sudah meminjam sebanyak batas maksimum. Exception membawa 
 
 **Screenshot kode:**
 
-![BatasPinjamTerlampauiException.java](screenshots/java-BatasPinjamTerlampauiException.java.png)
+![BatasPinjamTerlampauiException.java](<img width="996" height="642" alt="Bataspinjamterlampaui java" src="https://github.com/user-attachments/assets/b5ebebe3-66f6-4ff6-a142-c4298ca0621e" />
+)
 
 ### 1.6. service/LibraryServiceKotor.java
 
@@ -74,7 +79,8 @@ Ini versi awal sebagai bahan refactoring. Method `pinjam()` memakai `if` bersara
 
 **Screenshot kode:**
 
-![LibraryServiceKotor.java](screenshots/java-LibraryServiceKotor.java.png)
+![LibraryServiceKotor.java](<img width="702" height="1001" alt="LibraryServiceKotor java" src="https://github.com/user-attachments/assets/e41bc604-29af-4d36-87e2-865121b318df" />
+)
 
 ### 1.7. service/LibraryService.java
 
@@ -84,7 +90,8 @@ Ini hasil refactoring memakai guard clause. Setiap syarat dicek satu per satu da
 
 **Screenshot kode:**
 
-![LibraryService.java](screenshots/java-LibraryService.java.png)
+![LibraryService.java](<img width="1030" height="1027" alt="libraryservice java" src="https://github.com/user-attachments/assets/1b63a4c0-3c24-4db3-a58f-6a19ba878d42" />
+)
 
 ### 1.8. service/PerpustakaanService.java
 
@@ -94,7 +101,8 @@ Kelas ini mengurus interaksi dengan pengguna: form tambah anggota, tambah buku, 
 
 **Screenshot kode:**
 
-![PerpustakaanService.java](screenshots/java-PerpustakaanService.java.png)
+![PerpustakaanService.java](<img width="896" height="1031" alt="PerpustakaanService,java" src="https://github.com/user-attachments/assets/505cc9d3-12ea-4fe6-8d5e-dc04154f4d18" />
+)
 
 ### 1.9. Main.java
 
@@ -104,17 +112,13 @@ Titik masuk program. Menampilkan menu berulang (1 Tambah Anggota, 2 Tambah Buku,
 
 **Screenshot kode:**
 
-![Main.java](screenshots/java-Main.java.png)
+![Main.java](<img width="1137" height="992" alt="main java" src="https://github.com/user-attachments/assets/cffe2b4f-23e3-4513-8ba5-23ade39bcdd6" />
+)
 
 ### Output Java
 
-Output pertama memperlihatkan menu utama, lalu form tambah anggota dengan ID `A-001`, dan form tambah buku dengan ISBN `111` berjudul Laskar Pelangi (1 eksemplar) serta ISBN `222` berjudul Bumi Manusia (5 eksemplar). Setiap kali berhasil, program menampilkan pesan berhasil dan kembali ke menu.
+<img width="612" height="877" alt="Outputjava" src="https://github.com/user-attachments/assets/f7830e8e-7234-46ad-aa9d-bb3abdfa2174" />
 
-![Output Java 1](screenshots/output-java-1.png)
-
-Output kedua memperlihatkan form peminjaman. Peminjaman pertama berhasil. Setelah itu muncul empat jenis kegagalan: buku sedang dipinjam (stok habis), ISBN tidak ditemukan, anggota tidak ditemukan, dan batas pinjam 3 buku tercapai. Masing-masing disertai data penyebabnya. ID anggota kosong ditolak dengan peringatan, lalu `exit` mengembalikan program ke menu dan `0` mengakhirinya.
-
-![Output Java 2](screenshots/output-java-2.png)
 
 ---
 
@@ -130,7 +134,8 @@ Induk semua exception perpustakaan, turunan `RuntimeException`. PHP tidak punya 
 
 **Screenshot kode:**
 
-![PerpustakaanException.php](screenshots/php-PerpustakaanException.php.png)
+![PerpustakaanException.php](<img width="830" height="407" alt="Perpustakaan php" src="https://github.com/user-attachments/assets/464716e3-5cbc-4d6d-ac5e-dfcb090564b9" />
+)
 
 ### 2.2. src/Exception/BukuTidakDitemukanException.php
 
@@ -140,7 +145,8 @@ Dilempar saat ISBN tidak ada di katalog. Memakai constructor property promotion 
 
 **Screenshot kode:**
 
-![BukuTidakDitemukanException.php](screenshots/php-BukuTidakDitemukanException.php.png)
+![BukuTidakDitemukanException.php](<img width="867" height="577" alt="Bukutidakditemukan php" src="https://github.com/user-attachments/assets/1bb72bc7-885d-4309-bbe7-622ad411ffe4" />
+)
 
 ### 2.3. src/Exception/AnggotaTidakDitemukanException.php
 
@@ -150,7 +156,8 @@ Dilempar saat anggota belum terdaftar. Membawa `$idAnggota` yang bisa diambil le
 
 **Screenshot kode:**
 
-![AnggotaTidakDitemukanException.php](screenshots/php-AnggotaTidakDitemukanException.php.png)
+![AnggotaTidakDitemukanException.php](<img width="852" height="481" alt="Anggotatidakditemukan php" src="https://github.com/user-attachments/assets/3c4dc32b-c81f-4f11-90e6-79f86ef7d3f6" />
+)
 
 ### 2.4. src/Exception/BukuSedangDipinjamException.php
 
@@ -160,7 +167,8 @@ Dilempar saat stok buku habis. Membawa `$isbn` dan `$judul`, dengan getter `getI
 
 **Screenshot kode:**
 
-![BukuSedangDipinjamException.php](screenshots/php-BukuSedangDipinjamException.php.png)
+![BukuSedangDipinjamException.php](<img width="870" height="647" alt="Bukusedangdipinjam php" src="https://github.com/user-attachments/assets/565c3979-2c2b-4ff4-9810-5c27cac4a3ec" />
+)
 
 ### 2.5. src/Exception/BatasPinjamTerlampauiException.php
 
@@ -170,7 +178,8 @@ Dilempar saat anggota sudah mencapai batas pinjam. Membawa `$idAnggota` dan `$ba
 
 **Screenshot kode:**
 
-![BatasPinjamTerlampauiException.php](screenshots/php-BatasPinjamTerlampauiException.php.png)
+![BatasPinjamTerlampauiException.php](<img width="902" height="692" alt="Bataspinjamterlampaui php" src="https://github.com/user-attachments/assets/cbaefb84-dd5a-48d5-bddd-bd29a562917a" />
+)
 
 ### 2.6. src/Service/LibraryServiceKotor.php
 
@@ -180,7 +189,8 @@ Versi awal bahan refactoring. Method `pinjam()` bersarang empat tingkat dan hany
 
 **Screenshot kode:**
 
-![LibraryServiceKotor.php](screenshots/php-LibraryServiceKotor.php.png)
+![LibraryServiceKotor.php](<img width="762" height="1030" alt="libararyservicekotor php" src="https://github.com/user-attachments/assets/cb630713-ff0b-4c7e-820b-59e6b3f86a13" />
+)
 
 ### 2.7. src/Service/LibraryService.php
 
@@ -190,7 +200,8 @@ Hasil refactoring dengan guard clause. Method `pinjam()` mengecek anggota, buku,
 
 **Screenshot kode:**
 
-![LibraryService.php](screenshots/php-LibraryService.php.png)
+![LibraryService.php](<img width="782" height="1035" alt="libraryservice php" src="https://github.com/user-attachments/assets/62cde85f-d7c4-4703-ac31-3d4f613eebfc" />
+)
 
 ### 2.8. src/Main.php
 
@@ -200,13 +211,15 @@ Titik masuk program PHP, diletakkan di dalam folder `src`. Di bagian awal, file 
 
 **Screenshot kode:**
 
-![Main.php](screenshots/php-Main.php.png)
+![Main.php](<img width="881" height="1030" alt="main php" src="https://github.com/user-attachments/assets/ef05e087-eb3c-4777-b559-1b29b01ad42c" />
+)
 
 ### Output PHP
 
 Output memperlihatkan tujuh percobaan peminjaman. Percobaan pertama berhasil, lalu tiga percobaan berikutnya gagal karena buku sedang dipinjam, ISBN tidak ditemukan, dan anggota tidak terdaftar. Dua percobaan setelahnya berhasil, dan yang terakhir gagal karena batas 3 buku tercapai. Di akhir, laporan berhasil disimpan dan file ditutup lewat blok `finally`.
 
-![Output PHP](screenshots/output-php.png)
+![Output PHP](<img width="757" height="426" alt="outputphp" src="https://github.com/user-attachments/assets/e0f89a7b-0701-4920-bf6a-4bc968632bf8" />
+)
 
 ---
 
