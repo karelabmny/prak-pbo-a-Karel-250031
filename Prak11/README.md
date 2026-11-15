@@ -835,12 +835,3 @@ composer require --dev phpunit/phpunit
 ./vendor/bin/phpunit tests
 php main.php
 ```
-
----
-
-## 6. Verifikasi dan batasan
-
-- **Java:** seluruh sumber (termasuk `App` dan `Main`) berhasil dikompilasi pada level Java 17, dan ke-13 uji dijalankan terhadap kode hasil perbaikan memakai runner sederhana dengan stub JUnit (`Tests run: 13, Failures: 0`). `App` juga dijalankan, tetapi dengan stub `ascii-table` karena pustaka aslinya tidak bisa diunduh di lingkungan ini. `mvn test` sungguhan **belum** dijalankan, jadi jalankan sendiri untuk memastikan.
-- **PHP:** semua berkas lolos `php -l` (PHP 8.3), dan ke-14 uji dijalankan memakai stub `TestCase` sederhana (`Tests run: 14, Failures: 0`). `./vendor/bin/phpunit tests` sungguhan dan `php main.php` (butuh Carbon dari Composer) **belum** dijalankan.
-- **Skenario sesi 10:** berkas `skenario-uji.md` di repositori masih berupa templat kosong, sehingga uji tambahan disusun dari empat exception domain yang ada pada `LibraryService`. Sesuaikan dengan daftar skenario Anda sendiri.
-- **Demo:** pastikan Anda bisa menjelaskan setiap baris kode sendiri. Pelajari bagian *Analisis* di atas, lalu coba ubah satu baris (misalnya `List.copyOf` menjadi `new ArrayList<>(...)`) dan lihat uji mana yang gagal.
